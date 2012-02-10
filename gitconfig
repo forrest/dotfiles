@@ -1,0 +1,21 @@
+[user]
+  name = Forrest Zeisler
+  email = forrest@getjobber.com
+
+[color]
+  diff = auto
+  status = auto
+  ui = true
+  branch = auto
+
+[core]
+  editor = mvim -f
+
+[merge]
+  tool = vimdiff
+
+[alias]
+  co = checkout
+  st = status
+  br = branch
+  aa = add --all

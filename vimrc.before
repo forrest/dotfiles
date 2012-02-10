@@ -1,0 +1,11 @@
+let mapleader=","
+
+if has("gui_running")
+    set guioptions=egmrt
+    call janus#disable_plugin('buffergator')
+    let g:LustyJugglerSuppressRubyWarning = 1
+    nmap <silent> <Leader>b :LustyJuggler<CR>
+endif
+call janus#disable_plugin('endwise')
+
+let g:ctrlp_custom_ignore = 'tmp'

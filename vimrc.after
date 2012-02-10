@@ -1,0 +1,53 @@
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
+
+" Color scheme
+colorscheme Jellybeans
+highlight NonText guibg=#030303
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+" Treat <li> and <p> tags like the block tags they are
+" let g:html_indent_tags = 'li\|p'
+
+" Custom sequences
+nmap <leader>ne :NERDTreeToggle<cr>
+nmap <leader>fa :set foldmethod=syntax foldcolumn=4<cr>zr<cr>
+
+
+" Press <F2> before pasting to disable autoindenting"
+set pastetoggle=<F2>
+
+" textmate style indenting commands
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
+" For mac users (using the 'apple' key)
+map <D-S-]> gt
+map <D-S-[> gT
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<CR>
+
+" New windows show up on the right
+set spr
+
+nmap <leader>cw :%s/\s\+$<cr>
+let g:ctrlp_custom_ignore = 'tmp$'
+
+" Start in full screen mode
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
+endif
+
+" Keep cursor off edges
+set so=5
