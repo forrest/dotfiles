@@ -19,3 +19,4 @@
   st = status
   br = branch
   aa = add --all
+  ci = commit
