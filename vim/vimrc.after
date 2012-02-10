@@ -37,8 +37,9 @@ map <D-8> 8gt
 map <D-9> 9gt
 map <D-0> :tablast<CR>
 
-" New windows show up on the right
+" New windows show up on the right, and on the bottom
 set spr
+set sb
 
 nmap <leader>cw :%s/\s\+$<cr>
 let g:ctrlp_custom_ignore = 'tmp$'
