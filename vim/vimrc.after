@@ -23,6 +23,12 @@ nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
 
+" Match bubble keys for indenting
+nmap <D-h> <<
+nmap <D-l> >>
+vmap <D-h> <gv
+vmap <D-l> >gv
+
 " For mac users (using the 'apple' key)
 map <D-S-]> gt
 map <D-S-[> gT
@@ -42,7 +48,7 @@ set spr
 set sb
 
 nmap <leader>cw :%s/\s\+$<cr>
-let g:ctrlp_custom_ignore = 'tmp$'
+let g:ctrlp_custom_ignore = 'DS_Store\|\.git$\|^tmp$'
 
 " Start in full screen mode
 if has("gui_running")
@@ -52,3 +58,19 @@ endif
 
 " Keep cursor off edges
 set so=5
+
+" Dont ignore case (use \c instead)
+set noignorecase
+
+
+" Remove training wheels and make new tabs easier
+map <D-t> :tabe<cr>
+
+" Quick access to the jobber code
+map <leader>jc :cd ~/jobber/code/<cr>,ne
+
+" Easier non-interactive command insertion
+nnoremap <Space> :
+
+" Disable the onnoying print hotkeys
+nmap <D-p> :echoe "Wrong Key. Printing disabled."<CR>
