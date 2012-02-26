@@ -53,6 +53,7 @@ bindkey "^N" insert-last-word
 
 alias rake='noglob rake'
 alias heroku='noglob heroku'
+alias tmux="TERM=screen-256color-bce tmux"
 
 # rvm-install added line:
 if [[ -s $HOME/.profile ]] ; then source $HOME/.profile ; fi
@@ -68,3 +69,4 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+

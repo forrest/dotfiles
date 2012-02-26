@@ -18,3 +18,9 @@ ZSH:
   ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
   ln -s ~/dotfiles/zsh/jobber.plugin.zsh ~/.oh-my-zsh/custom/jobber.plugin.zsh
   ln -s ~/dotfiles/zsh/rbates.zsh-theme ~/.oh-my-zsh/themes/rbates.zsh-theme
+
+TMux:
+  sudo port install tmux
+  ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+  ln -s ~/dotfiles/tmux/tmux-scripts/ ~/.tmux-scripts
+  brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste

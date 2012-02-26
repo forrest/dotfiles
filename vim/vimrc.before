@@ -6,6 +6,7 @@ if has("gui_running")
     let g:LustyJugglerSuppressRubyWarning = 1
     nmap <silent> <Leader>b :LustyJuggler<CR>
 endif
+call janus#disable_plugin('snipmate')
 call janus#disable_plugin('endwise')
 
-let g:ctrlp_custom_ignore = 'tmp'
+let g:loaded_lustyexplorer = "yep" " this should prevent it loading

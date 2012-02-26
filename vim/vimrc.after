@@ -1,10 +1,14 @@
-" Display extra whitespace
+" Display and clear extra whitespace
 set list listchars=tab:»·,trail:·
+nmap <leader>cw :%s/\s\+$<cr><c-o>
 
 " Color scheme
 colorscheme Jellybeans
 highlight NonText guibg=#030303
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+autocmd FocusLost * :silent set transparency=15
+autocmd FocusGained * :silent set transparency=1
 
 " Treat <li> and <p> tags like the block tags they are
 " let g:html_indent_tags = 'li\|p'
@@ -47,13 +51,18 @@ map <D-0> :tablast<CR>
 set spr
 set sb
 
-nmap <leader>cw :%s/\s\+$<cr>
-let g:ctrlp_custom_ignore = 'DS_Store\|\.git$\|^tmp$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|^tmp$',
+  \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
+  \ }
 
-" Start in full screen mode
 if has("gui_running")
+  " Start in full screen mode
   set fuoptions=maxvert,maxhorz
   au GUIEnter * set fullscreen
+else
+  " Enable mouse scrolling
+  set mouse=nicr
 endif
 
 " Keep cursor off edges
@@ -74,3 +83,13 @@ nnoremap <Space> :
 
 " Disable the onnoying print hotkeys
 nmap <D-p> :echoe "Wrong Key. Printing disabled."<CR>
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
+" Lusty Juggler
+" let g:LustyJugglerShowKeys = 'a'
+let g:LustyJugglerSuppressRubyWarning = 1
+
+" User jj for escaping
+inoremap jj <ESC>
