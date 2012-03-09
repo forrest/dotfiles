@@ -5,19 +5,19 @@ nmap <leader>cw :%s/\s\+$<cr><c-o>
 " Color scheme
 colorscheme Jellybeans
 if has("gui_running")
-  "highlight Normal guibg=#040404
-  "highlight NonText guibg=#020202
+  highlight Normal guibg=#070707
+  highlight NonText guibg=#030303
   "highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
-  "set guioptions-=r
-  "set guioptions+=c
+  set guioptions-=r
+  set guioptions+=c
 
   autocmd FocusLost * :silent set transparency=15
   autocmd FocusGained * :silent set transparency=0
 end
 
 " Treat <li> and <p> tags like the block tags they are
-" let g:html_indent_tags = 'li\|p'
+let g:html_indent_tags = 'li\|p'
 
 " Custom sequences
 nmap <leader>ne :NERDTreeToggle<cr>

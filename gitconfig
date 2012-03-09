@@ -20,3 +20,6 @@
   br = branch
   aa = add --all
   ci = commit
+  l = "!source ~/.githelpers && pretty_git_log"
+  r = !git l -20
+  ra = !git r --all

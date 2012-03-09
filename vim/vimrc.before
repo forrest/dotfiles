@@ -2,11 +2,22 @@ let mapleader=","
 
 if has("gui_running")
     set guioptions=egmrt
-    call janus#disable_plugin('buffergator')
     let g:LustyJugglerSuppressRubyWarning = 1
     nmap <silent> <Leader>b :LustyJuggler<CR>
 endif
+
+call janus#disable_plugin('buffergator')
 call janus#disable_plugin('snipmate')
 call janus#disable_plugin('endwise')
+call janus#disable_plugin('gist')
+call janus#disable_plugin('tagbar')
+"call janus#disable_plugin('unimpaired')
+call janus#disable_plugin('vimwiki')
+call janus#disable_plugin('zoomwin')
 
 let g:loaded_lustyexplorer = "yep" " this should prevent it loading
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|^tmp$',
+  \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
+  \ }
