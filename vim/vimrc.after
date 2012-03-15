@@ -14,6 +14,8 @@ if has("gui_running")
 
   autocmd FocusLost * :silent set transparency=15
   autocmd FocusGained * :silent set transparency=0
+else
+  let g:solarized_termcolors=256
 end
 
 " Treat <li> and <p> tags like the block tags they are
@@ -38,6 +40,18 @@ nmap <D-h> <<
 nmap <D-l> >>
 vmap <D-h> <gv
 vmap <D-l> >gv
+
+" For mac users (using the 'apple' key)
+map <leader>1 1gt
+map <leader>2 2gt
+map <leader>3 3gt
+map <leader>4 4gt
+map <leader>5 5gt
+map <leader>6 6gt
+map <leader>7 7gt
+map <leader>8 8gt
+map <leader>9 9gt
+map <leader>0 :tablast<CR>
 
 " For mac users (using the 'apple' key)
 map <D-S-]> gt
@@ -75,10 +89,14 @@ endif
 set so=5
 
 " Dont ignore case (use \c instead)
-set noignorecase
+"set noignorecase
 
 " Remove training wheels and make new tabs easier
 map <D-t> :tabe<cr>
+
+" Keep NerdCommenter bound to the non-tmux keys
+map <leader>/ <plug>NERDCommenterToggle<CR>
+imap <leader>/ <plug>NERDCommenterToggle<CR>
 
 " Quick access to the jobber code
 map <leader>jc :cd ~/jobber/code/<cr>,ne
