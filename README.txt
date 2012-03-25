@@ -11,8 +11,9 @@ VIM:
   ln -s ~/dotfiles/vim/janus ~/.janus
 
 Git:
-  ln -s ~/dotfiles/gitconfig ~/.gitconfig
-  ln -s ~/dotfiles/githelpers ~/.githelpers
+  ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+  ln -s ~/dotfiles/git/githelpers ~/.githelpers
+  ln -s ~/dotfiles/git/git-scripts ~/.git-scripts
 
 ZSH:
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
