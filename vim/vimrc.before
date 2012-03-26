@@ -1,9 +1,10 @@
 let mapleader=","
 
+let g:LustyJugglerSuppressRubyWarning = 1
+let g:loaded_lustyexplorer = "yep" " this should prevent it loading
+
 if has("gui_running")
     set guioptions=egmrt
-    let g:LustyJugglerSuppressRubyWarning = 1
-    nmap <silent> <Leader>b :LustyJuggler<CR>
 endif
 
 call janus#disable_plugin('buffergator')
@@ -15,7 +16,6 @@ call janus#disable_plugin('tagbar')
 call janus#disable_plugin('vimwiki')
 call janus#disable_plugin('zoomwin')
 
-let g:loaded_lustyexplorer = "yep" " this should prevent it loading
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|^tmp$',

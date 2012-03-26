@@ -29,3 +29,7 @@ TMUX:
 
 General:
   ln -s ~/dotfiles/profile ~/.profile
+
+IRB:
+  gem install interactive_editor
+  ln -s ~/dotfiles/irbrc ~/.irbrc

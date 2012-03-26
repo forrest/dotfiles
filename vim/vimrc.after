@@ -112,7 +112,7 @@ let g:html_indent_tags = 'li\|p'
 
 " Lusty Juggler
 " let g:LustyJugglerShowKeys = 'a'
-let g:LustyJugglerSuppressRubyWarning = 1
+nmap <silent> <Leader>b :LustyJuggler<CR>
 
 " User jj for escaping
 inoremap jj <ESC>
