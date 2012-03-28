@@ -9,7 +9,7 @@
   branch = auto
 
 [core]
-  editor = mvim -f
+  editor = vim -f
 
 [merge]
   tool = vimdiff
