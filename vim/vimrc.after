@@ -2,8 +2,17 @@
 set list listchars=tab:»·,trail:·
 nmap <leader>cw :%s/\s\+$<cr><c-o>
 
+" so it loads with RVM
+set shell=/bin/sh
+
 " Color scheme
-colorscheme Jellybeans
+set bg=dark
+"colorscheme Jellybeans
+"colorscheme Molokai
+colorscheme vividchalk
+"highlight Normal ctermbg=black
+"highlight NonText ctermbg=black
+
 if has("gui_running")
   highlight Normal guibg=#070707
   highlight NonText guibg=#030303
@@ -23,25 +32,30 @@ let g:html_indent_tags = 'li\|p'
 
 " Custom sequences
 nmap <leader>ne :NERDTreeToggle<cr>
-nmap <leader>fa :set foldmethod=syntax foldcolumn=4<cr>zr<cr>
 
+" quickly add folds at the syntax edges, but keep manual folding method
+nmap <leader>zfa :set foldmethod=syntax foldcolumn=4<cr>zr<cr>:set foldmethod=manual<cr>
+
+"ugly hack for current project. runs just the wip tests if guard is running
+map <leader>t :!rspec spec --drb -e wip<cr>
+"map <leader>t :!touch spec/wip.txt<cr><cr>
+
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
+
+" Clear the search buffer when hitting return
+:nnoremap <leader>h :nohlsearch<cr>
 
 " Press <F2> before pasting to disable autoindenting"
 set pastetoggle=<F2>
 
-" textmate style indenting commands
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
+" Horizontal bubble keys for indenting
+nmap <C-h> <<
+nmap <C-l> >>
+vmap <C-h> <gv
+vmap <C-l> >gv
 
-" Match bubble keys for indenting
-nmap <D-h> <<
-nmap <D-l> >>
-vmap <D-h> <gv
-vmap <D-l> >gv
-
-" For mac users (using the 'apple' key)
+" quicker tab jumping
 map <leader>1 1gt
 map <leader>2 2gt
 map <leader>3 3gt
@@ -53,26 +67,13 @@ map <leader>8 8gt
 map <leader>9 9gt
 map <leader>0 :tablast<CR>
 
-" For mac users (using the 'apple' key)
-map <D-S-]> gt
-map <D-S-[> gT
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
-map <D-0> :tablast<CR>
 
 " New windows show up on the right, and on the bottom
 set spr
 set sb
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|^tmp$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|tmp$',
   \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
   \ }
 
@@ -88,11 +89,6 @@ endif
 " Keep cursor off edges
 set so=5
 
-" Dont ignore case (use \c instead)
-"set noignorecase
-
-" Remove training wheels and make new tabs easier
-map <D-t> :tabe<cr>
 
 " Keep NerdCommenter bound to the non-tmux keys
 map <leader>/ <plug>NERDCommenterToggle<CR>
@@ -129,10 +125,97 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Nicer copy/paste functionality with mac
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COPY/PASTE ON A MAC
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
 if !has("gui_running")
   set clipboard=unnamed
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FOR MACVIM
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <D-S-]> gt
+map <D-S-[> gT
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<CR>
+
+" Remove training wheels and make new tabs easier
+map <D-t> :tabe<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PROMOTE VARIABLE TO RSPEC LET
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SWITCH BETWEEN TEST AND PRODUCTION CODE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"function! opentestalternate()
+  "let new_file = alternateforcurrentfile()
+  "exec ':e ' . new_file
+"endfunction
+"function! alternateforcurrentfile()
+  "let current_file = expand("%")
+  "let new_file = current_file
+  "let in_spec = match(current_file, '^spec/') != -1
+  "let going_to_spec = !in_spec
+  "let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1
+  "if going_to_spec
+    "if in_app
+      "let new_file = substitute(new_file, '^app/', '', '')
+    "end
+    "let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    "let new_file = 'spec/' . new_file
+  "else
+    "let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    "let new_file = substitute(new_file, '^spec/', '', '')
+    "if in_app
+      "let new_file = 'app/' . new_file
+    "end
+  "endif
+  "return new_file
+"endfunction
+"nnoremap <leader>a :call opentestalternate()<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" statusline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" format markers:
+"   %< truncation point
+"   %n buffer number
+"   %f relative path to file
+"   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
+"   %r readonly flag [RO]
+"   %y filetype [ruby]
+"   %= split point for left and right justification
+"   %-35. width specification
+"   %l current line number
+"   %L number of lines in buffer
+"   %c current column number
+"   %V current virtual column number (-n), if different from %c
+"   %P percentage through buffer
+"   %) end of width specification
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)

@@ -4,7 +4,7 @@ alias bedtime='sudo shutdown -h +60'
 export PATH=/Users/Forrest/bin:$PATH
 
 # This seems to help with compiling some RVM stuff
-export CC=/usr/bin/gcc
+# export CC=/usr/bin/gcc
 
 # MacPorts Installer addition on 2009-04-13_at_19:13:14: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql83/bin:/usr/local/mysql/bin:$PATH
