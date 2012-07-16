@@ -113,6 +113,9 @@ nmap <silent> <Leader>b :LustyJuggler<CR>
 " User jj for escaping
 inoremap jj <ESC>
 
+" disable ex-mode
+map Q <Nop>
+
 " Include .prawn and .mobile filetypes
 au BufRead,BufNewFile *.prawn set filetype=ruby
 au BufRead,BufNewFile *.mobile set filetype=eruby

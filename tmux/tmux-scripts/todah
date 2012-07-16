@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# set up dev window
+tmux rename-window 'dev'
+tmux split-window -v -p 25
+tmux send-keys -t 0 "cd ~/jobber/code && vim" C-m
+tmux send-keys -t 0 ",ne" C-m
+tmux send-keys -t 1 "cd ~/jobber/code && guard" C-m
+
+# set up server window
+tmux new-window
+tmux rename-window 'server'
+tmux split-window -h -p 25
+tmux select-pane -t 1
+tmux split-window -v
+tmux send-keys -t 0 "cd ~/jobber/code && jcs" C-m
+tmux send-keys -t 1 "cd ~/jobber/code && jcse" C-m
+tmux send-keys -t 2 "cd ~/jobber/code && rake jobs:work" C-m
+
+# open misc. terminal
+tmux new-window
+tmux rename-window 'term'
+tmux send-keys -t 0 "cd ~/jobber/code" C-m
+
+# go back to dev
+tmux select-window -t :-2

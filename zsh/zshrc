@@ -50,23 +50,19 @@ bindkey "^N" insert-last-word
 
 
 # Customize to your needs...
-
 alias rake='noglob rake'
 alias heroku='noglob heroku'
 alias tmux="TERM=screen-256color-bce tmux"
 
-# rvm-install added line:
-if [[ -s $HOME/.profile ]] ; then source $HOME/.profile ; fi
-
-
-# rvm-install added:
-if [[ -s /Users/forrest/.rvm/scripts/rvm ]] ; then source /Users/forrest/.rvm/scripts/rvm ; fi
-
+# these are repeated in the jobber plugin, but aren't loading for soem reason
+alias jc='cd ~/jobber/code'
+alias jcs='cd ~/jobber/code && rails s webrick'
+alias jcse='cd ~/jobber/code && rake sunspot:solr:run'
+alias jcm='cd ~/jobber/code && mvim .'
 
 # MacPorts Installer addition on 2010-05-30_at_14:48:00: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if [[ -s $HOME/.profile ]] ; then source $HOME/.profile ; fi
 

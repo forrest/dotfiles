@@ -1,5 +1,6 @@
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias bedtime='sudo shutdown -h +60'
+alias todah='~/.tmux-scripts/todah'
 
 export PATH=/Users/Forrest/bin:$PATH
 
@@ -23,4 +24,11 @@ function railsapp {
     rails $appname -m http://github.com/forrest/Rails-Templates/raw/master/$template.rb $@
 }
 
+# rvm-install added line:
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# include the sencha tools in the path
+export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3:$PATH
+export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3/bin:$PATH
+export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3/jsbuilder:$PATH
