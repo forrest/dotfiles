@@ -7,6 +7,13 @@ tmux send-keys -t 0 "cd ~/jobber/code && vim" C-m
 tmux send-keys -t 0 ",ne" C-m
 tmux send-keys -t 1 "cd ~/jobber/code && guard" C-m
 
+# set up website window
+tmux rename-window 'website'
+tmux split-window -v -p 25
+tmux send-keys -t 0 "cd ~/jobber/website && vim" C-m
+tmux send-keys -t 0 ",ne" C-m
+tmux send-keys -t 1 "cd ~/jobber/website && rails s" C-m
+
 # set up server window
 tmux new-window
 tmux rename-window 'server'
@@ -16,6 +23,11 @@ tmux split-window -v
 tmux send-keys -t 0 "cd ~/jobber/code && jcs" C-m
 tmux send-keys -t 1 "cd ~/jobber/code && jcse" C-m
 tmux send-keys -t 2 "cd ~/jobber/code && rake jobs:work" C-m
+
+# open jobber_utilities
+tmux new-window
+tmux rename-window 'jobber_utilities'
+tmux send-keys -t 0 "cd ~/jobber/jobber_utilities" C-m
 
 # open misc. terminal
 tmux new-window
