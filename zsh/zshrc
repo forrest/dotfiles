@@ -50,7 +50,7 @@ bindkey "^N" insert-last-word
 
 
 # Customize to your needs...
-alias rake='noglob rake'
+#alias rake='noglob rake'
 #alias heroku='noglob heroku'
 alias tmux="TERM=screen-256color-bce tmux"
 

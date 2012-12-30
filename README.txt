@@ -29,8 +29,11 @@ TMUX:
 
 General:
   ln -s ~/dotfiles/profile ~/.profile
-
   ln -s ~/dotfiles/ackrc ~/.ackrc
+
 IRB:
   gem install interactive_editor
   ln -s ~/dotfiles/irbrc ~/.irbrc
+
+Quicklist of other useful tools:
+  Postgresql Server: http://postgresapp.com/

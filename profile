@@ -8,7 +8,7 @@ export PATH=/Users/Forrest/bin:$PATH
 # export CC=/usr/bin/gcc
 
 # MacPorts Installer addition on 2009-04-13_at_19:13:14: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql83/bin:/usr/local/mysql/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # MacPorts Installer addition on 2009-04-13_at_19:13:14: adding an appropriate MANPATH variable for use with MacPorts.
@@ -29,6 +29,10 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # include the sencha tools in the path
-export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3:$PATH
-export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3/bin:$PATH
-export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3/jsbuilder:$PATH
+#export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3:$PATH
+#export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3/bin:$PATH
+#export PATH=/Applications/SenchaSDKTools-2.0.0-Beta3/jsbuilder:$PATH
+
+
+# get the postgres tools running
+PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
