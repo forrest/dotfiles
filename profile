@@ -1,8 +1,9 @@
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim='/usr/local/Cellar/vim/7.4.052/bin/vim'
 alias bedtime='sudo shutdown -h +60'
 alias todah='~/.tmux-scripts/todah'
 
 export PATH=/Users/Forrest/bin:$PATH
+export PATH=$PATH:/Applications/Postgres93.app/Contents/MacOS/bin/
 
 # This seems to help with compiling some RVM stuff
 # export CC=/usr/bin/gcc
@@ -36,3 +37,8 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # get the postgres tools running
 PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+
+# faster ruby specs
+export RUBY_HEAP_MIN_SLOTS=3000000
+export RUBY_HEAP_FREE_MIN=300000
+export RUBY_GC_MALLOC_LIMIT=100000000

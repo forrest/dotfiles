@@ -14,9 +14,9 @@
 [merge]
   tool = vimdiff
 
-#[push]
+[push]
   # Push current branch even if you've never pushed it before
-#  default = current
+  default = current
 
 [alias]
   co = checkout

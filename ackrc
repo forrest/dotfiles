@@ -7,3 +7,4 @@ js=.coffee
 --type-add
 html=.eco
 
+--ignore-dir=log

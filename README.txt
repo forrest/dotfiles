@@ -22,7 +22,7 @@ ZSH:
   ln -s ~/dotfiles/zsh/rbates.zsh-theme ~/.oh-my-zsh/themes/rbates.zsh-theme
 
 TMUX:
-  sudo port install tmux
+  brew install tmux
   ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
   ln -s ~/dotfiles/tmux/tmux-scripts/ ~/.tmux-scripts
   brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
